@@ -18,29 +18,23 @@
 
     .circle {
 
-        position: relative;
+        position: absolute;
         border: 1px solid #42567A;
         border-radius: 50%;
         width: 500px;
         height: 500px;
+        transition: all 1s;
          
         .item {
-            
             width: 6px;
             height: 6px;
-            background-color: #42567A;
-            border-radius: 50%;
             position: absolute;
-            left: calc(50% - 25px);
-            top: calc(50% - 25px);
-            border: 1px solid #303E5880;
+            left: calc(50% - 3px);
+            top: calc(50% - 3px);
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 10;
-            transition: all 0.5s;
-            cursor: pointer;
-
+                
             &-0 {
                 transform: translateX(250px);
             }
@@ -65,30 +59,29 @@
                 transform: rotate(300deg) translateX(250px);
             }
 
-            &-active {
-                width: 56px;
-                height: 56px;
-                border-radius: 50%;
-                border: 1px solid #303E5880;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: #F4F5F9;
-
-                // transform: translateX(280px);
-            }
-
-            &:hover {
-                width: 56px;
-                height: 56px;
-                border-radius: 50%;
-                border: 1px solid #303E5880;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: #F4F5F9;
+            &__circle {
                 
-                // transform: translateX(280px);
+                width: 6px;
+                height: 6px;
+                background-color: #42567A;
+                border-radius: 50%;
+                position: absolute;
+                left: calc(50% - 0px);
+                top: calc(50% - 0px);
+                border: 1px solid #303E5880;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 10;
+                transform: translate(-50%, -50%);
+                transition: width 0.5s, height 0.5s;
+                cursor: pointer;
+    
+                &-active, &:hover {
+                    width: 56px;
+                    height: 56px;
+                    background-color: #F4F5F9;
+                }
             }
         }
     }
@@ -117,8 +110,6 @@
                 border-radius: 50%;
                 transform: matrix(-1, 0, 0, 1, 0, 0);
             
-    
-    
                 &-right {
                     transform: rotateZ(0deg);
                 }

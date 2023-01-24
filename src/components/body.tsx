@@ -36,9 +36,16 @@ export default function Body() {
                     {getBlockByIndex(currentIndex - 1).startingYear} {getBlockByIndex(currentIndex - 1).endingYear}
                 </h1>
             </div>
-            <div className={circleClass}>
+            <div className={circleClass} style = {{transform: `rotateZ(${-60 * currentIndex}deg)`}}>
                 {getAllBlocks().map((item, key) => {
-                    return <div className={`item item-${key} ${key+ 1 === currentIndex ? `item-active` : ``}`} onClick={() => dispatch(setIndex(key))}>{key+1}</div>
+                    return <div className={`item item-${key}`}>
+                        <div className={`item__circle ${key+ 1 === currentIndex ? `item__circle-active` : ``}`} onClick={() => dispatch(setIndex(key))}>
+                            {key+ 1 === currentIndex && key+1}
+                        </div>
+                        <p> 
+                            {key+ 1 === currentIndex && item.name}
+                        </p>
+                    </div>
                 })}
             </div>
             <div className={counerClass}>
