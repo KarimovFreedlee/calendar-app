@@ -1,0 +1,130 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    h1 {
+        
+        font-family: PT Sans;
+        font-size: 200px;
+        font-weight: 700;
+        line-height: 160px;
+        letter-spacing: -0.02em;
+        text-align: center;
+        width: 973px;
+        height: 160px;
+        color: #5D5FEF;
+    }
+
+    .circle {
+
+        position: relative;
+        border: 1px solid #42567A;
+        border-radius: 50%;
+        width: 500px;
+        height: 500px;
+         
+        .item {
+            
+            width: 6px;
+            height: 6px;
+            background-color: #42567A;
+            border-radius: 50%;
+            position: absolute;
+            left: calc(50% - 25px);
+            top: calc(50% - 25px);
+            border: 1px solid #303E5880;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            transition: all 0.5s;
+            cursor: pointer;
+
+            &-0 {
+                transform: translateX(250px);
+            }
+
+            &-1 {
+                transform: rotate(60deg) translateX(250px);
+            }
+
+            &-2 {
+                transform: rotate(120deg) translateX(250px);
+            }
+
+            &-3 {
+                transform: rotate(180deg) translateX(250px);
+            }
+            
+            &-4 {
+                transform: rotate(240deg) translateX(250px);
+            }
+            
+            &-5 {
+                transform: rotate(300deg) translateX(250px);
+            }
+
+            &-active {
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                border: 1px solid #303E5880;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #F4F5F9;
+
+                // transform: translateX(280px);
+            }
+
+            &:hover {
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                border: 1px solid #303E5880;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #F4F5F9;
+                
+                // transform: translateX(280px);
+            }
+        }
+    }
+
+    .counter {
+        
+        text-align: start;
+        width: 120px;
+        height: 88px;
+        
+        &__buttons {
+            display: flex;
+    
+            gap: 20px;
+            margin-top: 20px;
+    
+            .button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+                width: 50px;
+                height: 50px;
+                
+                border: 1px solid rgba(66, 86, 122, 0.5);
+                border-radius: 50%;
+                transform: matrix(-1, 0, 0, 1, 0, 0);
+            
+    
+    
+                &-right {
+                    transform: rotateZ(0deg);
+                }
+            }
+        }
+    }
+
+
+}

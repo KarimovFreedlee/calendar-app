@@ -1,0 +1,48 @@
+.slider {
+    display: flex;
+    align-items: center;
+    
+    margin-top: 56px;
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin: 0 40px;
+
+        background-color: #fff;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        box-shadow: 0px 0px 15px rgba(56, 119, 238, 0.1);
+
+        &-right {
+            transform: rotateZ(180deg);
+        }
+    }
+}
+
+.element {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    cursor: grab;
+
+    width: 320px;
+
+    &__header {
+        margin-bottom: 15px;
+        color: #3877EE;
+    }
+
+    &__text {
+        padding: 0;
+        margin: 0;
+        height: 90px;
+        text-align: start;
+        color: #42567A;
+    }
+}
