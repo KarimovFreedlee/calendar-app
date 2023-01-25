@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getElementsByIndex } from '../data/dataController'
+import { getBlocksLength, getElementsByIndex } from '../data/dataController'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "../css/slider.scss"
 import 'swiper/scss';
@@ -39,7 +39,8 @@ export default function Slider() {
                 </svg>
             </button>
             <Swiper
-                spaceBetween={0}
+                spaceBetween={5}
+                resizeObserver={false}
                 slidesPerView={slidesPerView}
                 onSlideChange={(swiper) => setSlideIndex(swiper.activeIndex)}
                 onSwiper={(swiper) => setSwiper(swiper)}
@@ -57,7 +58,8 @@ export default function Slider() {
                     </SwiperSlide>
                 })}
             </Swiper>
-            <button className={buttonClass} onClick={handleRightButtonClick} style = {slideIndex === getElementsByIndex(currentIndex).length - 3 ? {visibility: "hidden"} : {}}>
+            <button className={buttonClass} onClick={handleRightButtonClick} 
+                style = {slideIndex === getElementsByIndex(currentIndex).length - 3 || getElementsByIndex(currentIndex).length <= 2  ? {visibility: "hidden"} : {}}>
                 <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 1L6 6L1 11" stroke="#3877EE" stroke-width="2"/>
                 </svg>

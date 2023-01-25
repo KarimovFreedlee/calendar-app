@@ -1,4 +1,4 @@
-import { getAllBlocks, getBlockByIndex, getBlocksLength } from '../data/dataController'
+import { getBlockByIndex, getBlocksLength } from '../data/dataController'
 import { counterSlice } from '../store/reducers/counterReducer'
 import { useAppDispatch, useAppSelector } from '../store/store'
 import "../css/body.scss"

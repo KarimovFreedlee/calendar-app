@@ -10,8 +10,8 @@
     position: relative;
     
     margin-left: 320px;
-    border-left: 1px solid rgb(0 0 0 / 20%);
-    border-right: 1px solid rgb(0 0 0 / 20%);
+    border-left: 1px solid rgb(0 0 0 / 10%);
+    border-right: 1px solid rgb(0 0 0 / 10%);
     margin-right: 160px;
 
     &__header-container {
@@ -104,7 +104,8 @@
                     transform: translate(40px, 42px) rotateZ(60deg);
                 }
     
-                &__circle {
+                &__circle {    
+                    color: #42567A;
                     overflow: hidden;
                     width: 6px;
                     height: 6px;
@@ -169,7 +170,7 @@
     .axis {
         position: absolute;
         background-color: #42567A;
-        opacity: 0.2;
+        opacity: 0.1;
 
         &-y {
             height: 100vh;
