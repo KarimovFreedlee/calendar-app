@@ -75,11 +75,11 @@
         justify-content: center;
         align-items: center;
         position: absolute;
-        top: 50%;
+        top: 215px;
         left: 50%;
+        transform: translate(-50%, 0%);
         
         &__circle {
-            position: absolute;
             border: 1px solid #42567A;
             border-radius: 50%;
             width: 500px;
