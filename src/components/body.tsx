@@ -2,6 +2,8 @@ import { getAllBlocks, getBlockByIndex, getBlocksLength } from '../data/dataCont
 import { counterSlice } from '../store/reducers/counterReducer'
 import { useAppDispatch, useAppSelector } from '../store/store'
 import "../css/body.scss"
+import Circle from './circle'
+import Slider from './slider'
 
 export default function Body() {
     const currentIndex = useAppSelector(state => state.counterReducer.currentIndex) + 1
@@ -9,9 +11,12 @@ export default function Body() {
     const dispatch = useAppDispatch()
 
     const mainClass = "body"
-    const circleClass = "circle"
-    const counerClass = "counter"
-    const buttonsClass = "counter__buttons"
+    const headerContainerClass = `${mainClass}__header-container`
+    const borderClass = `border-left`
+    const headerClass = `header`
+    const yearsContainerClass = `${mainClass}__years-container`
+    const counerClass = `${mainClass}__counter`
+    const buttonsClass = `buttons-container`
     const buttonClass = "button"
 
     function handleRightButtonClick() {
@@ -28,31 +33,20 @@ export default function Body() {
             dispatch(setIndex(getBlocksLength() - 1))
     }
 
-    function calcRotationDeg() {
-        return -360/getBlocksLength() * currentIndex
-    }
-
     return (
         <div className={mainClass}>
-            <div>
+            <div className={headerContainerClass}>
+                <div className={borderClass}></div>
+                <h2 className={headerClass}>
+                    Исторические даты
+                </h2>
+            </div>
+            <div className={yearsContainerClass}>
                 <h1>
                     {getBlockByIndex(currentIndex - 1).startingYear} {getBlockByIndex(currentIndex - 1).endingYear}
                 </h1>
             </div>
-            <div className={circleClass} style = {{transform: `rotateZ(${calcRotationDeg()}deg)`}}>
-                {getAllBlocks().map((item, key) => {
-                    return <div className={`item item-${key}`} style={{ transform: `rotate(${360/(getBlocksLength()) * key}deg) translateX(250px)`}}>
-                        <div className={`item__circle ${key+ 1 === currentIndex ? `item__circle-active` : ``}`} onClick={() => dispatch(setIndex(key))}>
-                            <p style={{transform: `rotate(${-360/(getBlocksLength()) * (key - currentIndex)}deg) `}}>
-                                {key + 1} 
-                            </p>
-                        </div>
-                        <p className='text'> 
-                            {key+ 1 === currentIndex && item.name}
-                        </p>
-                    </div>
-                })}
-            </div>
+            <Circle/>
             <div className={counerClass}>
                 <div>
                     0{currentIndex}/0{getBlocksLength()}
@@ -70,6 +64,7 @@ export default function Body() {
                     </button>    
                 </div>
             </div>
+            <Slider/>
         </div>
     )
 }
