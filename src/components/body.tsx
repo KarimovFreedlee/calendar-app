@@ -35,6 +35,8 @@ export default function Body() {
 
     return (
         <div className={mainClass}>
+            <div className='axis axis-y'></div>
+            <div className='axis axis-x'></div>
             <div className={headerContainerClass}>
                 <div className={borderClass}></div>
                 <h2 className={headerClass}>
@@ -67,8 +69,6 @@ export default function Body() {
                     </button>    
                 </div>
             </div>
-            <div className='axis axis-y'></div>
-            <div className='axis axis-x'></div>
             <Slider/>
         </div>
     )
