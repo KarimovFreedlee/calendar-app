@@ -17,7 +17,6 @@
     }
 
     .circle {
-
         position: absolute;
         border: 1px solid #42567A;
         border-radius: 50%;
@@ -34,33 +33,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-                
-            &-0 {
-                transform: translateX(250px);
-            }
 
-            &-1 {
-                transform: rotate(60deg) translateX(250px);
-            }
-
-            &-2 {
-                transform: rotate(120deg) translateX(250px);
-            }
-
-            &-3 {
-                transform: rotate(180deg) translateX(250px);
-            }
-            
-            &-4 {
-                transform: rotate(240deg) translateX(250px);
-            }
-            
-            &-5 {
-                transform: rotate(300deg) translateX(250px);
+            .text{
+                transform: translate(40px, 42px) rotateZ(60deg);
             }
 
             &__circle {
-                
+                overflow: hidden;
                 width: 6px;
                 height: 6px;
                 background-color: #42567A;

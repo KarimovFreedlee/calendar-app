@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { getAllBlocks, getBlockByIndex, getBlocksLength, getElementsByIndex} from '../data/dataController'
+import { getAllBlocks, getBlockByIndex, getBlocksLength } from '../data/dataController'
 import { counterSlice } from '../store/reducers/counterReducer'
 import { useAppDispatch, useAppSelector } from '../store/store'
 import "../css/body.scss"
@@ -29,6 +28,10 @@ export default function Body() {
             dispatch(setIndex(getBlocksLength() - 1))
     }
 
+    function calcRotationDeg() {
+        return -360/getBlocksLength() * currentIndex
+    }
+
     return (
         <div className={mainClass}>
             <div>
@@ -36,13 +39,15 @@ export default function Body() {
                     {getBlockByIndex(currentIndex - 1).startingYear} {getBlockByIndex(currentIndex - 1).endingYear}
                 </h1>
             </div>
-            <div className={circleClass} style = {{transform: `rotateZ(${-60 * currentIndex}deg)`}}>
+            <div className={circleClass} style = {{transform: `rotateZ(${calcRotationDeg()}deg)`}}>
                 {getAllBlocks().map((item, key) => {
-                    return <div className={`item item-${key}`}>
+                    return <div className={`item item-${key}`} style={{ transform: `rotate(${360/(getBlocksLength()) * key}deg) translateX(250px)`}}>
                         <div className={`item__circle ${key+ 1 === currentIndex ? `item__circle-active` : ``}`} onClick={() => dispatch(setIndex(key))}>
-                            {key+ 1 === currentIndex && key+1}
+                            <p style={{transform: `rotate(${-360/(getBlocksLength()) * (key - currentIndex)}deg) `}}>
+                                {key + 1} 
+                            </p>
                         </div>
-                        <p> 
+                        <p className='text'> 
                             {key+ 1 === currentIndex && item.name}
                         </p>
                     </div>
