@@ -15,7 +15,7 @@ export default function Body() {
     const borderClass = `border-left`
     const headerClass = `header`
     const yearsContainerClass = `${mainClass}__years-container`
-    const counerClass = `${mainClass}__counter`
+    const counterClass = `${mainClass}__counter`
     const buttonsClass = `buttons-container`
     const buttonClass = "button"
 
@@ -50,7 +50,7 @@ export default function Body() {
                 </h1>
             </div>
             <Circle/>
-            <div className={counerClass}>
+            <div className={counterClass}>
                 <div>
                     0{currentIndex}/0{getBlocksLength()}
                 </div>
@@ -67,6 +67,8 @@ export default function Body() {
                     </button>    
                 </div>
             </div>
+            <div className='axis axis-y'></div>
+            <div className='axis axis-x'></div>
             <Slider/>
         </div>
     )
