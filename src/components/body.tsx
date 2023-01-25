@@ -42,8 +42,11 @@ export default function Body() {
                 </h2>
             </div>
             <div className={yearsContainerClass}>
-                <h1>
-                    {getBlockByIndex(currentIndex - 1).startingYear} {getBlockByIndex(currentIndex - 1).endingYear}
+                <h1 className="start-year">
+                    {getBlockByIndex(currentIndex - 1).startingYear}
+                </h1>
+                <h1 className="end-year">
+                    {getBlockByIndex(currentIndex - 1).endingYear}
                 </h1>
             </div>
             <Circle/>

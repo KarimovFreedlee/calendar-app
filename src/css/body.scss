@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
+    height: 100vh;
 
     position: relative;
     
@@ -40,6 +42,10 @@
     &__years-container {
 
         margin-left: 217px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 973px;
 
         h1 {
             
@@ -52,6 +58,14 @@
             width: 973px;
             height: 160px;
             color: #5D5FEF;
+        }
+
+        .start-year {
+            color: #5D5FEF;
+        }
+
+        .end-year {
+            color: #ef5da8;
         }
     }
 

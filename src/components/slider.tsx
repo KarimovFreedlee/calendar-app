@@ -39,13 +39,13 @@ export default function Slider() {
                 </svg>
             </button>
             <Swiper
-                spaceBetween={10}
+                spaceBetween={0}
                 slidesPerView={slidesPerView}
                 onSlideChange={(swiper) => setSlideIndex(swiper.activeIndex)}
                 onSwiper={(swiper) => setSwiper(swiper)}
             >
                 {getElementsByIndex(currentIndex).map(item => {
-                    return <SwiperSlide> 
+                    return <SwiperSlide key={crypto.randomUUID()}> 
                         <div className={elementClass}>
                             <h3 className={headerClass}>
                                 {item.year}
