@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { getAllBlocks, getBlocksLength } from '../data/dataController';
 import { counterSlice } from '../store/reducers/counterReducer';
 import { useAppDispatch, useAppSelector } from '../store/store';
@@ -8,11 +7,11 @@ export default function Circle() {
     const {setIndex} = counterSlice.actions
     const dispatch = useAppDispatch()
     
-    const mainClass = "circle-container"
-    const circleClass = `${mainClass}__circle`
-    const paginationClass = `${mainClass}__pagination`
+    const mainClass: string = "circle-container"
+    const circleClass: string = `${mainClass}__circle`
+    const paginationClass: string = `${mainClass}__pagination`
 
-    function calcRotationDeg() {
+    function calcRotationDeg(): number {
         return -360/getBlocksLength() * currentIndex
     }
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getElementsByIndex } from '../data/dataController'
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import "../css/slider.scss"
 import 'swiper/scss';
 import { useAppSelector } from '../store/store';
@@ -8,16 +8,16 @@ import { useAppSelector } from '../store/store';
 export default function Slider() {
     const currentIndex = useAppSelector(state => state.counterReducer.currentIndex)
     
-    const [swiper, setSwiper] = useState<any>();
-    const [slideIndex, setSlideIndex] = useState(0)
-    const [slidesPerView, setSlidesPerView] = useState(3)
+    const [swiper, setSwiper] = useState(useSwiper());
+    const [slideIndex, setSlideIndex] = useState<number>(0)
+    const [slidesPerView, setSlidesPerView] = useState<number>(3)
     
-    const mainClass = "slider"
-    const buttonClass = `${mainClass}__button`
+    const mainClass: string = "slider"
+    const buttonClass: string = `${mainClass}__button`
 
-    const elementClass = "element"
-    const headerClass = `${elementClass}__header`
-    const textClass = `${elementClass}__text`
+    const elementClass: string = "element"
+    const headerClass: string = `${elementClass}__header`
+    const textClass: string = `${elementClass}__text`
 
     useEffect(() => {
         const { innerWidth: width } = window;
@@ -28,11 +28,11 @@ export default function Slider() {
             setSlidesPerView(getElementsByIndex(currentIndex).length < 3 ? getElementsByIndex(currentIndex).length : 3)
     }, [currentIndex])
 
-    function handleRightButtonClick() {
+    function handleRightButtonClick(): void {
         swiper.slideNext()
     }
 
-    function handleLeftButtonClick() {
+    function handleLeftButtonClick(): void {
         swiper.slidePrev()
     }
 

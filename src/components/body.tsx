@@ -10,23 +10,23 @@ export default function Body() {
     const {incIndex, decIndex, setIndex} = counterSlice.actions
     const dispatch = useAppDispatch()
 
-    const mainClass = "body"
-    const headerContainerClass = `${mainClass}__header-container`
-    const borderClass = `border-left`
-    const headerClass = `header`
-    const yearsContainerClass = `${mainClass}__years-container`
-    const counterClass = `${mainClass}__counter`
-    const buttonsClass = `buttons-container`
-    const buttonClass = "button"
+    const mainClass: string = "body"
+    const headerContainerClass: string = `${mainClass}__header-container`
+    const borderClass: string = `border-left`
+    const headerClass: string = `header`
+    const yearsContainerClass: string = `${mainClass}__years-container`
+    const counterClass: string = `${mainClass}__counter`
+    const buttonsClass: string = `buttons-container`
+    const buttonClass: string = "button"
 
-    function handleRightButtonClick() {
+    function handleRightButtonClick(): void {
         if(currentIndex < getBlocksLength())
             dispatch(incIndex())
         else
             dispatch(setIndex(0))
     }
 
-    function handleLeftButtonClick() {
+    function handleLeftButtonClick(): void {
         if(currentIndex > 1)
             dispatch(decIndex())
         else
@@ -53,7 +53,7 @@ export default function Body() {
             </div>
             <Circle/>
             <div className={counterClass}>
-                <div className='text'>
+                <div className='text: string'>
                     0{currentIndex}/0{getBlocksLength()}
                 </div>
                 <div className={buttonsClass}>

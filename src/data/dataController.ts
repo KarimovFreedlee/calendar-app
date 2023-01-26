@@ -1,10 +1,5 @@
 import data from "./data.json"
 
-export interface ISLiderElement {
-    year: string,
-    text: string
-}
-
 export function getBlockByIndex(index: number) {
     return Object.values(data)[index]
 }
