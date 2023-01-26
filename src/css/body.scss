@@ -111,24 +111,29 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+
+                &__wrapper {
+
+                    .text{
+                        
+                        padding-left: 145px;
+
+                        font-family: PT Sans;
+                        font-size: 20px;
+                        font-weight: 700;
+                        line-height: 30px;
+                        letter-spacing: 0em;
+                        text-align: left;
     
-                .text{
-                    transform: translate(38px, 26px) rotateZ(60deg);
-                    align-self: flex-start;
+                        color: #42567A;
+                        opacity: 0;
+    
+                        animation: appear 0.6s ease-in-out forwards;
+                        animation-delay: 1s;
+                    }
                     
-                    font-family: PT Sans;
-                    font-size: 20px;
-                    font-weight: 700;
-                    line-height: 30px;
-                    letter-spacing: 0em;
-                    text-align: left;
-
-                    color: #42567A;
-                    opacity: 0;
-
-                    animation: appear 0.6s ease-in-out forwards;
-                    animation-delay: 1s;
                 }
+    
     
                 &__circle {    
                     color: #42567A;

@@ -21,14 +21,16 @@ export default function Circle() {
             <div className={circleClass} style={{transform: `rotateZ(${calcRotationDeg()}deg)`}}>
                 {getAllBlocks().map((item, key) => {
                     return <div className={`item item-${key}`} key={crypto.randomUUID()} style={{transform: `rotate(${360 / getBlocksLength() * key}deg) translateX(265px)`}}>
-                        <div className={`item__circle ${key + 1 === currentIndex ? `item__circle-active` : ``}`} onClick={() => dispatch(setIndex(key))}>
-                            <p style={{transform: `rotate(${-360 / getBlocksLength() * (key - currentIndex)}deg) `}}>
-                                {key + 1} 
+                        <div className='item__wrapper' style={{transform: `rotate(${-360 / getBlocksLength() * (key - currentIndex)}deg) `}}>
+                            <div className={`item__circle ${key + 1 === currentIndex ? `item__circle-active` : ``}`} onClick={() => dispatch(setIndex(key))}>
+                                <p>
+                                    {key + 1} 
+                                </p>
+                            </div>
+                            <p className='text'> 
+                                {key + 1 === currentIndex && item.name}
                             </p>
                         </div>
-                        <p className='text'> 
-                            {key + 1 === currentIndex && item.name}
-                        </p>
                     </div>;
                 })}
             </div>
