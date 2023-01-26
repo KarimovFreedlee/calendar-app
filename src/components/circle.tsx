@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { getAllBlocks, getBlocksLength } from '../data/dataController';
 import { counterSlice } from '../store/reducers/counterReducer';
 import { useAppDispatch, useAppSelector } from '../store/store';
@@ -9,6 +10,7 @@ export default function Circle() {
     
     const mainClass = "circle-container"
     const circleClass = `${mainClass}__circle`
+    const paginationClass = `${mainClass}__pagination`
 
     function calcRotationDeg() {
         return -360/getBlocksLength() * currentIndex
@@ -28,6 +30,12 @@ export default function Circle() {
                             {key + 1 === currentIndex && item.name}
                         </p>
                     </div>;
+                })}
+            </div>
+            <div className={paginationClass}>
+                {getAllBlocks().map((item, key) => {
+                    return <div className={`item ${key + 1 === currentIndex ? `item-active` : ``}`} onClick={() => dispatch(setIndex(key))}>
+                    </div>
                 })}
             </div>
         </div>

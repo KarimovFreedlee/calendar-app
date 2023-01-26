@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import { getBlocksLength, getElementsByIndex } from '../data/dataController'
+import { getElementsByIndex } from '../data/dataController'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "../css/slider.scss"
 import 'swiper/scss';
+import 'swiper/css/pagination';
 import { useAppSelector } from '../store/store';
 
 export default function Slider() {
@@ -39,18 +40,18 @@ export default function Slider() {
                 </svg>
             </button>
             <Swiper
-                spaceBetween={5}
+                spaceBetween={25}
                 resizeObserver={false}
-                slidesPerView={slidesPerView}
+                slidesPerView={2}
                 onSlideChange={(swiper) => setSlideIndex(swiper.activeIndex)}
                 onSwiper={(swiper) => setSwiper(swiper)}
             >
                 {getElementsByIndex(currentIndex).map(item => {
                     return <SwiperSlide key={crypto.randomUUID()}> 
                         <div className={elementClass}>
-                            <h3 className={headerClass}>
+                            <p className={headerClass}>
                                 {item.year}
-                            </h3>
+                            </p>
                             <p className={textClass}>
                                 {item.text}
                             </p>
@@ -59,7 +60,8 @@ export default function Slider() {
                 })}
             </Swiper>
             <button className={buttonClass} onClick={handleRightButtonClick} 
-                style = {slideIndex === getElementsByIndex(currentIndex).length - 3 || getElementsByIndex(currentIndex).length <= 2  ? {visibility: "hidden"} : {}}>
+                style = {slideIndex === getElementsByIndex(currentIndex).length - 3 || getElementsByIndex(currentIndex).length <= 2  ? {visibility: "hidden"} : {}}
+            >
                 <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 1L6 6L1 11" stroke="#3877EE" stroke-width="2"/>
                 </svg>

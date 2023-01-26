@@ -57,14 +57,14 @@ export default function Body() {
                     0{currentIndex}/0{getBlocksLength()}
                 </div>
                 <div className={buttonsClass}>
-                    <button className={`${buttonClass}`} onClick={handleLeftButtonClick} style = {{}}>
-                        <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1L6 6L1 11" stroke="#3877EE" stroke-width="2"/>
+                    <button className={`${buttonClass} ${buttonClass}-left`} onClick={handleLeftButtonClick} disabled={currentIndex === 1}>
+                        <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.49988 0.750001L2.24988 7L8.49988 13.25" stroke="#42567A" stroke-width="2"/>
                         </svg>
                     </button>
-                    <button className={`${buttonClass} ${buttonClass}-right`} onClick={handleRightButtonClick} style = {{}}>
-                        <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1L6 6L1 11" stroke="#3877EE" stroke-width="2"/>
+                    <button className={`${buttonClass} ${buttonClass}`} onClick={handleRightButtonClick} disabled={currentIndex === getBlocksLength()}>
+                        <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.49988 0.750001L2.24988 7L8.49988 13.25" stroke="#42567A" stroke-width="2"/>
                         </svg>
                     </button>    
                 </div>

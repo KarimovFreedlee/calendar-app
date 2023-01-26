@@ -32,6 +32,20 @@
   }
 }
 
+@media screen and (min-width: 330px) {
+  #root {
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+  }
+
+  .App {
+    width: 100%;
+    border: none;
+    overflow: none;
+  }
+}
+
 .card {
   padding: 2em;
 }
