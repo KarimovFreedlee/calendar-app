@@ -13,10 +13,10 @@
 
     position: relative;
     
-    margin-left: 320px;
+    margin-left: 16%;
     border-left: 1px solid rgb(0 0 0 / 10%);
     border-right: 1px solid rgb(0 0 0 / 10%);
-    margin-right: 160px;
+    margin-right: 8%;
 
     &__header-container {
         width: 432px;
@@ -152,7 +152,7 @@
 
         &__pagination {
             display: none;
-            justify-content: space-around;
+            justify-content: space-between;
             
             width: 86px;
             
@@ -243,7 +243,7 @@
 
 }
 
-@media screen and (max-width: 330px) {
+@media screen and (max-width: 420px) {
     .body {
         display: flex;
         flex-direction: column;

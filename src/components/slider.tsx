@@ -3,7 +3,6 @@ import { getElementsByIndex } from '../data/dataController'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "../css/slider.scss"
 import 'swiper/scss';
-import 'swiper/css/pagination';
 import { useAppSelector } from '../store/store';
 
 export default function Slider() {
@@ -21,7 +20,12 @@ export default function Slider() {
     const textClass = `${elementClass}__text`
 
     useEffect(() => {
-        setSlidesPerView(getElementsByIndex(currentIndex).length < 3 ? getElementsByIndex(currentIndex).length : 3)
+        const { innerWidth: width } = window;
+
+        if(width < 430) {
+            setSlidesPerView(2)    
+        } else
+            setSlidesPerView(getElementsByIndex(currentIndex).length < 3 ? getElementsByIndex(currentIndex).length : 3)
     }, [currentIndex])
 
     function handleRightButtonClick() {
@@ -42,13 +46,13 @@ export default function Slider() {
             <Swiper
                 spaceBetween={25}
                 resizeObserver={false}
-                slidesPerView={2}
+                slidesPerView={slidesPerView}
                 onSlideChange={(swiper) => setSlideIndex(swiper.activeIndex)}
                 onSwiper={(swiper) => setSwiper(swiper)}
             >
-                {getElementsByIndex(currentIndex).map(item => {
+                {getElementsByIndex(currentIndex).map((item, key) => {
                     return <SwiperSlide key={crypto.randomUUID()}> 
-                        <div className={elementClass}>
+                        <div className={`${elementClass} ${elementClass}${slideIndex === key ? `-active` : ``}`}>
                             <p className={headerClass}>
                                 {item.year}
                             </p>
