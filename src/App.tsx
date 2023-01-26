@@ -1,5 +1,6 @@
 import './App.scss'
 import Body from './components/body'
+import "@fontsource/bebas-neue";
 
 function App() {
   return (

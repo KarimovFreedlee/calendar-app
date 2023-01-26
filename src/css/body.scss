@@ -396,6 +396,19 @@
             line-height: 18px;
             letter-spacing: 0em;
             text-align: left;
+
+            .text {
+                width: 41px;
+                height: 14px;
+                left: 20.17px;
+                top: 505px;
+                font-family: 'PT Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 18px;
+                color: #42567A;
+            }
             
             .buttons-container {
                 display: flex;
@@ -418,6 +431,10 @@
                 
                     &-left {
                         transform: rotateZ(0deg);
+                    }
+
+                    svg {
+                        height: 6.25px;
                     }
     
                     &:disabled,

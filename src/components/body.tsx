@@ -53,7 +53,7 @@ export default function Body() {
             </div>
             <Circle/>
             <div className={counterClass}>
-                <div>
+                <div className='text'>
                     0{currentIndex}/0{getBlocksLength()}
                 </div>
                 <div className={buttonsClass}>

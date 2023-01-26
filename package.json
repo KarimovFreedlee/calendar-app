@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/bebas-neue": "^4.5.9",
     "@reduxjs/toolkit": "^1.9.1",
     "@types/react-redux": "^7.1.25",
     "react": "^18.2.0",
