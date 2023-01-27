@@ -57,8 +57,8 @@
         ]
     },
     "music": {
-        "startingYear": 2015,
-        "endingYear": 2019,
+        "startingYear": 2001,
+        "endingYear": 2006,
         "name": "музыка",
         "elements" : [
             {
@@ -80,8 +80,8 @@
         ]
     },
     "hobby": {
-        "startingYear": 2020,
-        "endingYear": 2022,
+        "startingYear": 1994,
+        "endingYear": 1999,
         "name": "хобби",
         "elements" : [
             {
