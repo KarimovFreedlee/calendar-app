@@ -4,6 +4,8 @@ import { useAppDispatch, useAppSelector } from '../store/store'
 import "../css/body.scss"
 import Circle from './circle'
 import Slider from './slider'
+import { useEffect } from 'react'
+import gsap from 'gsap'
 
 export default function Body() {
     const currentIndex = useAppSelector(state => state.counterReducer.currentIndex) + 1
@@ -19,6 +21,10 @@ export default function Body() {
     const buttonsClass: string = `buttons-container`
     const buttonClass: string = "button"
 
+    useEffect(() => {
+        countNumber()
+    }, [currentIndex])
+
     function handleRightButtonClick(): void {
         if(currentIndex < getBlocksLength())
             dispatch(incIndex())
@@ -31,6 +37,21 @@ export default function Body() {
             dispatch(decIndex())
         else
             dispatch(setIndex(getBlocksLength() - 1))
+    }
+
+    function countNumber() {
+
+        gsap.to(".start-year", { innerText: parseInt(getBlockByIndex(currentIndex - 1).startingYear), duration: 1, 
+            snap: {
+              innerText:1
+            } 
+        });
+
+        gsap.to(".end-year", { innerText: parseInt(getBlockByIndex(currentIndex - 1).endingYear), duration: 1, 
+            snap: {
+              innerText:1
+            } 
+        });
     }
 
     return (
@@ -53,9 +74,9 @@ export default function Body() {
             </div>
             <Circle/>
             <div className={counterClass}>
-                <div className='text: string'>
+                <p className='text'>
                     0{currentIndex}/0{getBlocksLength()}
-                </div>
+                </p>
                 <div className={buttonsClass}>
                     <button className={`${buttonClass} ${buttonClass}-left`} onClick={handleLeftButtonClick} disabled={currentIndex === 1}>
                         <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
