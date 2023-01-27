@@ -35,7 +35,7 @@ export default function Circle() {
             </div>
             <div className={paginationClass}>
                 {getAllBlocks().map((item, key) => {
-                    return <div className={`item ${key + 1 === currentIndex ? `item-active` : ``}`} onClick={() => dispatch(setIndex(key))}>
+                    return <div className={`item ${key + 1 === currentIndex ? `item-active` : ``}`} key={crypto.randomUUID()} onClick={() => dispatch(setIndex(key))}>
                     </div>
                 })}
             </div>
