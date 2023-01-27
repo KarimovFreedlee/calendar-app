@@ -1,7 +1,7 @@
 {
     "movie": {
-        "startingYear": "2008",
-        "endingYear": "2014",
+        "startingYear": 2008,
+        "endingYear": 2014,
         "name": "кино",
         "elements" : [
             {
@@ -11,8 +11,8 @@
         ]
     },
     "science": {
-        "startingYear": "2015",
-        "endingYear": "2019",
+        "startingYear": 2015,
+        "endingYear": 2019,
         "name": "наука",
         "elements" : [
             {
@@ -34,8 +34,8 @@
         ]
     },
     "cars": {
-        "startingYear": "2020",
-        "endingYear": "2022",
+        "startingYear": 2020,
+        "endingYear": 2022,
         "name": "машины",
         "elements" : [
             {
@@ -57,8 +57,8 @@
         ]
     },
     "music": {
-        "startingYear": "2015",
-        "endingYear": "2019",
+        "startingYear": 2015,
+        "endingYear": 2019,
         "name": "музыка",
         "elements" : [
             {
@@ -80,8 +80,8 @@
         ]
     },
     "hobby": {
-        "startingYear": "2020",
-        "endingYear": "2022",
+        "startingYear": 2020,
+        "endingYear": 2022,
         "name": "хобби",
         "elements" : [
             {

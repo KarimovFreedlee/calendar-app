@@ -4,13 +4,16 @@ import { useAppDispatch, useAppSelector } from '../store/store'
 import "../css/body.scss"
 import Circle from './circle'
 import Slider from './slider'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import gsap from 'gsap'
 
 export default function Body() {
     const currentIndex = useAppSelector(state => state.counterReducer.currentIndex) + 1
     const {incIndex, decIndex, setIndex} = counterSlice.actions
     const dispatch = useAppDispatch()
+
+    const [startYear, setStartYear] = useState<number>(getBlockByIndex(currentIndex - 1).startingYear)
+    const [endYear, setEndYear] = useState<number>(getBlockByIndex(currentIndex - 1).endingYear)
 
     const mainClass: string = "body"
     const headerContainerClass: string = `${mainClass}__header-container`
@@ -40,17 +43,19 @@ export default function Body() {
     }
 
     function countNumber() {
-
-        gsap.to(".start-year", { innerText: parseInt(getBlockByIndex(currentIndex - 1).startingYear), duration: 1, 
+        gsap.to(".start-year", { innerText: getBlockByIndex(currentIndex - 1).startingYear, duration: 1, 
             snap: {
               innerText:1
-            } 
+            },
+            onUpdate: () => {
+                setStartYear(prev=> prev)
+            }
         });
 
-        gsap.to(".end-year", { innerText: parseInt(getBlockByIndex(currentIndex - 1).endingYear), duration: 1, 
+        gsap.to(".end-year", { innerText: getBlockByIndex(currentIndex - 1).endingYear, duration: 1, 
             snap: {
               innerText:1
-            } 
+            } ,
         });
     }
 
@@ -66,10 +71,10 @@ export default function Body() {
             </div>
             <div className={yearsContainerClass}>
                 <h1 className="start-year">
-                    {getBlockByIndex(currentIndex - 1).startingYear}
+                    {startYear}
                 </h1>
                 <h1 className="end-year">
-                    {getBlockByIndex(currentIndex - 1).endingYear}
+                    {endYear}
                 </h1>
             </div>
             <Circle/>
