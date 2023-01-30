@@ -8,7 +8,7 @@ import { useAppSelector } from '../store/store';
 export default function Slider() {
     const currentIndex = useAppSelector(state => state.counterReducer.currentIndex)
     
-    const [swiper, setSwiper] = useState(useSwiper());
+    const [swiper, setSwiper] = useState<ReturnType<typeof useSwiper>>(useSwiper());
     const [slideIndex, setSlideIndex] = useState<number>(0)
     const [slidesPerView, setSlidesPerView] = useState<number>(3)
     
